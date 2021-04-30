@@ -13,7 +13,7 @@
 	2. Modificar el estado del zoológico
 		* Para zoo en estado de abierto al público, podrá cambiar a: remodelación (sin cambios en fecha de cierre) ó  cerrado (agregar la fecha de cierre).
 		* Para zoo en estado en remodelación podrá cambiar a: abierto al público (sin cambios en fecha de cierre); no aplica cambiar a estado cerrado.
-		*	Para zoo en estado cerrado no hay cambios.
+		* Para zoo en estado cerrado no hay cambios.
 	3.   Mostrar todos los zoo´s.
 
 	4.   Mostrar todos los zoo´s en un estado específico (pedir estado)
