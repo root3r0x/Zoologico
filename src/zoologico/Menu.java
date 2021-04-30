@@ -5,10 +5,19 @@
  */
 package zoologico;
 
-/**
- *
- * @author ledes
- */
+import zoologico.*;
+
 public class Menu {
     
+    public void ImprimeMenu(){}
+        
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Zoologico zo = new Zoologico(); //Objeto Zoologico creado.
+        
+        System.out.print("Hola \n");
+    }
 }
