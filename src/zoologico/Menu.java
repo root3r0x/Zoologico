@@ -9,7 +9,19 @@ import zoologico.*;
 
 public class Menu {
     
-    public void ImprimeMenu(){}
+    public void Menu(){}
+    public void SubMenu(){}
+    
+    public static void ImprimeMenu(){
+        System.out.println(" _.: - - - - - Menu de opciones. - - - - - :._"      + 
+                "\n---------------------------------------" +
+                "\n[1].-Agregar Zoologico Nuevo."           +
+                "\n[2].-Mostrar Zoologicos."                +
+                "\n[3].-Modificar Zoologico Existente."     +
+                "\n[4].-Mostrar Zoologicos [Segun estado]"  +
+                "\n---------------------------------------" +
+                "\n[5].-Salir.");
+    }
         
     /**
      * @param args the command line arguments
@@ -17,7 +29,8 @@ public class Menu {
     public static void main(String[] args) {
         // TODO code application logic here
         Zoologico zo = new Zoologico(); //Objeto Zoologico creado.
-        
-        System.out.print("Hola \n");
+        System.out.print("\n ************************************** \n");
+        ImprimeMenu();
+        System.out.print("\n ************************************** \n");
     }
 }
