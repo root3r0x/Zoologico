@@ -36,13 +36,13 @@ public class Zoologico {
     public void setESTADO_ACTUAL(int estado){
         switch(estado)  
         { 
-            case 0:
+            case 1:
                 this.ESTADO_ACTUAL = this.ESTADO[0]; //Abierto al publico.
                 break;
-            case 1:
+            case 2:
                 this.ESTADO_ACTUAL = this.ESTADO[1] = "En remodelacion."; //En Remodelacion.
                 break;
-            case 2:
+            case 3:
                 this.ESTADO_ACTUAL = this.ESTADO[2] = "Cerrado."; //Cerrado.
                 break;
         }

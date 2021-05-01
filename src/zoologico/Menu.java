@@ -12,33 +12,89 @@ public class Menu
     static Zoologico zo = new Zoologico(); //Objeto Zoologico creado.
     //ingreso por consola.
     public static Scanner inp = new Scanner(System.in);
+    public static Scanner curp = new Scanner(System.in);
+    public static Scanner datos = new Scanner(System.in);
+    
     public static int opcion;
     public static boolean exist = false;
-        
-    private static void validaExistencia(){
+    
+
+    public static void closeScanners(){
+        inp.close();
+        datos.close();
+        curp.close();
+    }
+    public static void clearScanners(){
+        datos.next();
+        curp.next();
+    }
+    public static void validaExistencia(){
         if(zo.getNOMBRE()==null)
             System.out.println("Sin zoologicos por el momento, favor de agregar.");
         else
             exist = true;
     }
     
-    static Scanner datos = new Scanner(System.in);
     //Agregar Datos al objeto Zoologico
     public static void subMenuAgregarNuevo()    {
-        String nombreZo, ciudadZo, paisZo, estadoActZo, nombreEncargado, curpEncargado;
+        
+        String nombreZo, ciudadZo, paisZo, nombreEncargado, curpEncargado;
+        int estadoActZo;
+        double areaZo, presupuestoAnual;
+        
         System.out.print("Ingrese los datos del Zoologico: ");
         System.out.print("\n Nombre: ");
-        
+        nombreZo = datos.nextLine();
         System.out.print("\n Ciudad: ");
+        ciudadZo = datos.nextLine();
         System.out.print("\n Pais: ");
+        paisZo = datos.nextLine();
+        System.out.println(" [1]Abierto al publico [2] En remodelacion [3] Cerrado");
         System.out.print("\n Estado actual: ");
+        estadoActZo = datos.nextInt();
+        System.out.print("\n Area del Zoologico: ");
+        areaZo = datos.nextDouble();
+        System.out.print("\n Presupuesto anual del Zoologico: $");
+        presupuestoAnual = datos.nextDouble();
         System.out.print("\n  Ingrese los datos del Encargado de este Zoologico: ");
         System.out.print("\n Nombre del Encargado:");
+        nombreEncargado = datos.nextLine();
+        
         System.out.print("\n Curp del Encargado:");
+        curpEncargado = curp.nextLine();
+
+        System.out.println(" Nombre: " + nombreZo + 
+                " Ciudad: " + ciudadZo + 
+                " Pais" + paisZo +
+                " Estado actual " + estadoActZo +
+                " Area del zoo" + areaZo +
+                " Presupuesto " + presupuestoAnual +
+                " -- Datos encargado --- " +
+                " Nombre Encargado: " + nombreEncargado +
+                " Curp Encargado: " + curpEncargado);        
     }
     
     public static void subMenuMostrar() {
         Menu.validaExistencia();
+        
+        String nombreZo = zo.getNOMBRE();
+        String ciudadZo = zo.getCIUDAD();
+        String paisZo = zo.getPAIS();
+        String nombreEncargado = zo.getENCARGADO();
+        String curpEncargado = zo.getCURP();
+        String estadoActZo = zo.getESTADO_ACTUAL();
+        double areaZo = zo.getAREA();
+        double presupuestoAnual = zo.getPRESUPUESTO_ANUAL();
+        
+        System.out.println("\n Nombre: " + nombreZo + 
+                "\n Ciudad: " + ciudadZo + 
+                "\n Pais" + paisZo +
+                "\n Estado actual " + estadoActZo +
+                "\n Area del zoo" + areaZo +
+                "\n Presupuesto " + presupuestoAnual +
+                "\n -- Datos encargado --- " +
+                "\n Nombre Encargado: " + nombreEncargado +
+                "\n Curp Encargado: " + curpEncargado);    
     }
     
     public static void subMenuMostrarSegunEstado()  {
@@ -92,6 +148,6 @@ public class Menu
     public static void main(String[] args) {
         // TODO code application logic here
         ImprimeMenu();
-        
+        closeScanners();
     }
 }
