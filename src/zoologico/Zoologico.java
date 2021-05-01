@@ -10,11 +10,7 @@
 //        this.AREA                   = area;
 //        this.PRESUPUESTO_ANUAL    = presupuesto_anual;
 //    }
-// 
-
 package zoologico;
-
-import javafx.scene.layout.Region;
 
 public class Zoologico {
     
@@ -24,7 +20,9 @@ public class Zoologico {
     private String ESTADO_ACTUAL;
     private final String[] ESTADO = {"Abierto al publico.", "En Remodelacion.", "Cerrado."};
     private String ENCARGADO;
-    private String PERIODO;
+    private String ENCARGADO_CURP;
+    private String FECHA_APERTURA;
+    private String FECHA_CIERRE;
     
     private double AREA; //M^2 -> Tamaño
     private double PRESUPUESTO_ANUAL;    
@@ -32,9 +30,8 @@ public class Zoologico {
     public Zoologico() {
         super();
     }
-     
+         
     /**
-     * @param ESTADO the ESTADO actual del zoologico.
      */
     public void setESTADO_ACTUAL(int estado){
         switch(estado)  
@@ -108,14 +105,55 @@ public class Zoologico {
     public String getENCARGADO() {
         return ENCARGADO;
     }
-
     /**
-     * @param ENCARGADO the ENCARGADO to set
+     * @param ENCARGADO the ENCARGADO_NOMBRE to set
+     * @param 
      */
     public void setENCARGADO(String ENCARGADO) {
         this.ENCARGADO = ENCARGADO;
     }
+    /**
+     * @param CURP_ENCARGADO the ENCARGADO_CURP to set
+     */
+    public void setCURPENCARGADO(String CURP_ENCARGADO) {
+        this.ENCARGADO_CURP = CURP_ENCARGADO;
+    }
+    /**
+     * @return the ENCARGADO
+     */
+    public String getCURP() {
+        return ENCARGADO_CURP;
+    }
+    
+    /**
+     * @return the FECHA_APERTURA
+     */
+    public String getFECHA_APERTURA() {
+        return FECHA_APERTURA;
+    }
 
+    /**
+     * @param FECHA_APERTURA the FECHA_APERTURA to set
+     */
+    public void setFECHA_APERTURA(String FECHA_APERTURA) {
+        this.FECHA_APERTURA = FECHA_APERTURA;
+    }
+
+    /**
+     * @return the FECHA_CIERRE
+     */
+    public String getFECHA_CIERRE() {
+        return FECHA_CIERRE;
+    }
+
+    /**
+     * @param FECHA_CIERRE the FECHA_CIERRE to set
+     */
+    public void setFECHA_CIERRE(String FECHA_CIERRE) {
+        this.FECHA_CIERRE = FECHA_CIERRE;
+    }
+
+    
     /**
      * @return the AREA
      */
@@ -142,20 +180,6 @@ public class Zoologico {
      */
     public void setPRESUPUESTO_ANUAL(double PRESUPUESTO_ANUAL) {
         this.PRESUPUESTO_ANUAL = PRESUPUESTO_ANUAL;
-    }
-
-    /**
-     * @return the PERIODO
-     */
-    public String getPERIODO() {
-        return PERIODO;
-    }
-    
-    /**
-     * @param PERIODO the PERIODO to set
-     */
-    public void setPERIODO(String PERIODO) {
-        this.PERIODO = PERIODO;
     }
     
 }
