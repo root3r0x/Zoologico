@@ -22,17 +22,19 @@ public class Menu
             exist = true;
     }
     
+    static Scanner datos = new Scanner(System.in);
     //Agregar Datos al objeto Zoologico
     public static void subMenuAgregarNuevo()    {
-        //Limpiamos el input.
-        inp.next();
-        System.out.println("Ingrese los datos del Zoologico: ");
-        System.out.println("\n Nombre: ");
-        System.out.println("\n Ciudad: ");
-        System.out.println("\n Pais: ");
-        System.out.println("\n Estado actual: ");
-        System.out.println("\n Encargado: ");
-        System.out.println("Ingrese los datos del Encargado: ");
+        String nombreZo, ciudadZo, paisZo, estadoActZo, nombreEncargado, curpEncargado;
+        System.out.print("Ingrese los datos del Zoologico: ");
+        System.out.print("\n Nombre: ");
+        
+        System.out.print("\n Ciudad: ");
+        System.out.print("\n Pais: ");
+        System.out.print("\n Estado actual: ");
+        System.out.print("\n  Ingrese los datos del Encargado de este Zoologico: ");
+        System.out.print("\n Nombre del Encargado:");
+        System.out.print("\n Curp del Encargado:");
     }
     
     public static void subMenuMostrar() {
