@@ -16,9 +16,8 @@ public class Menu
     public static Scanner datos = new Scanner(System.in);
     
     public static int opcion;
-    public static boolean exist = false;
+    public static boolean firstRun = false;
     
-
     public static void closeScanners(){
         inp.close();
         datos.close();
@@ -31,12 +30,20 @@ public class Menu
     public static void validaExistencia(){
         if(zo.getNOMBRE()==null)
             System.out.println("Sin zoologicos por el momento, favor de agregar.");
-        else
-            exist = true;
     }
     
     //Agregar Datos al objeto Zoologico
     public static void subMenuAgregarNuevo()    {
+        
+        //zo = new Zoologico(); //Creamos el objeto.
+        
+        if(firstRun==true){
+            inp.nextLine();
+            datos.nextLine();
+            System.out.println();
+            System.out.println("\n Precione enter para continuar...");
+            firstRun = false;
+        }
         
         String nombreZo, ciudadZo, paisZo, nombreEncargado, curpEncargado;
         int estadoActZo;
@@ -44,34 +51,44 @@ public class Menu
         
         System.out.print("Ingrese los datos del Zoologico: ");
         System.out.print("\n Nombre: ");
-        nombreZo = datos.nextLine();
+        nombreZo = curp.nextLine();
         System.out.print("\n Ciudad: ");
         ciudadZo = datos.nextLine();
         System.out.print("\n Pais: ");
         paisZo = datos.nextLine();
-        System.out.println(" [1]Abierto al publico [2] En remodelacion [3] Cerrado");
-        System.out.print("\n Estado actual: ");
+        System.out.println("\n [1]Abierto al publico [2] En remodelacion [3] Cerrado");
+        System.out.print(" Estado actual: ");
         estadoActZo = datos.nextInt();
         System.out.print("\n Area del Zoologico: ");
         areaZo = datos.nextDouble();
         System.out.print("\n Presupuesto anual del Zoologico: $");
         presupuestoAnual = datos.nextDouble();
-        System.out.print("\n  Ingrese los datos del Encargado de este Zoologico: ");
+        System.out.print("\n Ingrese los datos del Encargado de este Zoologico: ");
         System.out.print("\n Nombre del Encargado:");
-        nombreEncargado = datos.nextLine();
-        
+        nombreEncargado = curp.nextLine();
         System.out.print("\n Curp del Encargado:");
         curpEncargado = curp.nextLine();
-
-        System.out.println(" Nombre: " + nombreZo + 
-                " Ciudad: " + ciudadZo + 
-                " Pais" + paisZo +
-                " Estado actual " + estadoActZo +
-                " Area del zoo" + areaZo +
-                " Presupuesto " + presupuestoAnual +
-                " -- Datos encargado --- " +
-                " Nombre Encargado: " + nombreEncargado +
-                " Curp Encargado: " + curpEncargado);        
+        
+        System.out.println("\n Nombre: " + nombreZo + 
+                " \n Ciudad: " + ciudadZo + 
+                " \n Pais: " + paisZo +
+                " \n Estado actual: " + estadoActZo +
+                " \n Area del zoo: " + areaZo + " mts" +
+                " \n Presupuesto: " + presupuestoAnual +
+                " \n -- Datos encargado --- " +
+                " \n Nombre Encargado: " + nombreEncargado +
+                " \n Curp Encargado: " + curpEncargado);
+        
+        //Asignamos los datos al objeto.
+        zo.setNOMBRE(nombreZo);
+        zo.setCIUDAD(ciudadZo);
+        zo.setPAIS(paisZo);
+        zo.setESTADO_ACTUAL(estadoActZo);
+        zo.setAREA(areaZo);
+        zo.setENCARGADO(nombreEncargado);
+        zo.setCURPENCARGADO(curpEncargado);
+        Menu.subMenuMostrar(); //Confirmamos los datos del objeto.
+                
     }
     
     public static void subMenuMostrar() {
@@ -86,7 +103,7 @@ public class Menu
         double areaZo = zo.getAREA();
         double presupuestoAnual = zo.getPRESUPUESTO_ANUAL();
         
-        System.out.println("\n Nombre: " + nombreZo + 
+        System.out.println("\n Nombre: " + nombreZo +
                 "\n Ciudad: " + ciudadZo + 
                 "\n Pais" + paisZo +
                 "\n Estado actual " + estadoActZo +
