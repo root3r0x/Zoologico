@@ -16,7 +16,7 @@ public class Menu
     public static Scanner datos = new Scanner(System.in);
     
     public static int opcion;
-    public static boolean firstRun = false;
+    public static boolean firstRun = true;
     
     public static void closeScanners(){
         inp.close();
@@ -27,9 +27,12 @@ public class Menu
         datos.next();
         curp.next();
     }
-    public static void validaExistencia(){
+    public static void validaExistencia(int menu){
         if(zo.getNOMBRE()==null)
-            System.out.println("Sin zoologicos por el momento, favor de agregar.");
+            System.out.println("\n Sin zoologicos por el momento," +
+                    "\n favor de agregar datos.");
+        if(menu==2){}
+            
     }
     
     //Agregar Datos al objeto Zoologico
@@ -37,12 +40,12 @@ public class Menu
         
         //zo = new Zoologico(); //Creamos el objeto.
         
-        if(firstRun==true){
+        if(firstRun!=false){
+            System.out.println("\n Precione enter para continuar...\n");
             inp.nextLine();
             datos.nextLine();
             System.out.println();
-            System.out.println("\n Precione enter para continuar...");
-            firstRun = false;
+            firstRun = true;
         }
         
         String nombreZo, ciudadZo, paisZo, nombreEncargado, curpEncargado;
@@ -85,6 +88,7 @@ public class Menu
         zo.setPAIS(paisZo);
         zo.setESTADO_ACTUAL(estadoActZo);
         zo.setAREA(areaZo);
+        zo.setPRESUPUESTO_ANUAL(presupuestoAnual);
         zo.setENCARGADO(nombreEncargado);
         zo.setCURPENCARGADO(curpEncargado);
         Menu.subMenuMostrar(); //Confirmamos los datos del objeto.
@@ -92,7 +96,8 @@ public class Menu
     }
     
     public static void subMenuMostrar() {
-        Menu.validaExistencia();
+        
+        Menu.validaExistencia(2);
         
         String nombreZo = zo.getNOMBRE();
         String ciudadZo = zo.getCIUDAD();
@@ -105,17 +110,17 @@ public class Menu
         
         System.out.println("\n Nombre: " + nombreZo +
                 "\n Ciudad: " + ciudadZo + 
-                "\n Pais" + paisZo +
-                "\n Estado actual " + estadoActZo +
-                "\n Area del zoo" + areaZo +
-                "\n Presupuesto " + presupuestoAnual +
+                "\n Pais: " + paisZo +
+                "\n Estado actual: " + estadoActZo +
+                "\n Area del zoo: " + areaZo +
+                "\n Presupuesto: " + presupuestoAnual +
                 "\n -- Datos encargado --- " +
                 "\n Nombre Encargado: " + nombreEncargado +
                 "\n Curp Encargado: " + curpEncargado);    
     }
     
     public static void subMenuMostrarSegunEstado()  {
-        Menu.validaExistencia();
+        Menu.validaExistencia(4);
     }
     
     public static void subMenuModificar(){}
